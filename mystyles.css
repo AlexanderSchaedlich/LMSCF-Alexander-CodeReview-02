@@ -1,0 +1,53 @@
+.bannerPhone
+		display: inline
+
+	.bannerLaptopAndTablet, #banner2
+		display: none
+	
+	.link
+		width: 48%
+
+	.bannerPhone
+		width: 48%
+		display: block
+
+		img
+			width: 100%
+
+	.caption
+		p
+			font-size: 1em
+
+// media queries for tablets and laptops
+
+@media only screen and (min-width: 768px)
+	#banner2
+		display: block
+
+	// .bannerPhone, .bannerDiv
+	// 	display: none
+
+	.bannerDiv	
+		display: none
+
+	.link
+		width: 31%
+
+	.link
+		width: 48%	
+
+	#remainingImages
+		.link
+			.caption
+				p
+					font-size: 1.5em
+
+@media only screen and (max-width: 767px)
+
+	.link
+		width: 100%
+		margin-top: 30px
+
+	.bannerPhone
+		width: 100%
+		margin-top: 30px

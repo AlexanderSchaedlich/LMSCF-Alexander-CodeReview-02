@@ -1,6 +1,7 @@
 *
 	margin: 0
 	padding: 0
+	border: black solid 1px
 
 //fonts and colors
 
@@ -31,12 +32,14 @@ nav, footer
 	align-items: center
 	#logo
 		width: 23%
-		height: 100%
 		margin: 4% 2.5%
+		img
+			width: 100%
 	#logoBanner
 		width: 60%
-		height: 100%
 		margin: 2%
+		img
+			width: 100%
 
 nav 
 	padding: 0.5% 1%
@@ -46,6 +49,7 @@ nav
 		a
 			text-decoration: none
 			font-size: 2em
+			color: white
 
 //main
 
@@ -71,36 +75,34 @@ nav
 	justify-content: space-between
 	.leftColumn
 		width: 86.75%
-		.wrapper
-			#topNews
-				display: flex
-				justify-content: space-between
-				.link
-					width: 31%
-					a img 
-						width: 100%
-					.caption
-						position: relative
-						margin-top: -20%
-						width: 100%
-						height: 30%
-						background-color: #171717
-						p
-							padding: 5px 10px
-							text-align: justify
-				.bannerPhone
-					display: none
+		#topNews
+			display: flex
+			justify-content: space-between
+			flex-wrap: wrap
+			.link
+				// width: 31%
+				a img 
+					width: 100%
+				.caption
+					position: relative
+					margin-top: -20%
+					width: 100%
+					height: 30%
+					background-color: #171717
+					p
+						padding: 5px 10px
+						text-align: justify
 		.title
 			margin-top: 3%
 
-//popular 
-//why its not working if I just add #popular as sibling of #topNews to the previous tree?
+//popular
 
 #popular
 	display: flex
 	justify-content: space-between
+	flex-wrap: wrap
 	.link
-		width: 31%
+		// width: 31%
 		a img 
 			width: 100%
 		.caption
@@ -117,32 +119,120 @@ nav
 
 .rightColumn 
 	width: 11.81%
-	img
-		width: 100%
-		height: auto
+	a
+		img
+			width: 100%
+			height: auto
 
-#banner2
-	width: 92%
-	padding: 2% 0
-	display: block
-	margin: auto
+a
+	#banner2
+		width: 92%
+		padding: 2% 0
+		margin: auto
 
 #remainingImages
 	display: flex
 	flex-wrap: wrap
 	.link
 		width: 45%
-		margin: 2%
+		margin: 4% 2%
 		a img 
 			width: 100%
 		.caption
 			position: relative
-			margin-top: -20%
+			margin-top: -18%
 			width: 100%
 			height: 30%
 			background-color: #171717
-		.ofNonStandartImage
-			margin-top: -9%
 			p
 				padding: 5px 10px
 				text-align: justify
+		.ofNonStandartImage2
+			margin-top: -14%
+		.ofNonStandartImage3
+			margin-top: -19%
+		.ofNonStandartImage4
+			margin-top: -18.5%
+
+#biggerImages
+	padding-bottom: 7%
+
+a
+	#banner3
+		height: 97.25%
+
+footer
+	ul
+		li
+			a
+				font-size: 1.5em
+	a
+		img
+			float: right
+			width: 25%
+			margin: 5% 2%
+	#copyright
+		clear: right
+		text-align: center
+		font-size: 1.4em
+		padding: 1%
+	
+// media queries for phones
+
+@media only screen and (max-width: 767px)
+	.bannerPhone
+		display: inline
+
+	.bannerLaptopAndTablet, #banner2
+		display: none
+	
+	.link
+		width: 48%
+		margin-top: 30px
+
+	.bannerPhone
+		width: 48%
+		margin-top: 30px
+
+		img
+			width: 100%
+
+	.caption
+		p
+			font-size: 1em
+
+// media queries for tablets and laptops
+
+@media only screen and (min-width: 768px)
+	#banner2
+		display: block
+
+	.bannerPhone
+		display: none
+
+	.link
+		width: 31%
+
+
+	#remainingImages
+		.link
+			.caption
+				p
+					font-size: 1.5em
+
+@media only screen and (max-width: 600px)
+	.link
+		width: 100%
+		margin-top: 60px
+
+	.caption
+		margin-top: 0%					
+
+// question: if I write a display property in the main code (for example block or flex) 
+// and then try to overwrite it in media query it does not overwrite 
+// (new property is not shown in developer tools).
+// So I have to take the statement out into an extra media query wich would be unnecessary otherwise.
+// How to fix this problem?
+
+// Similar problem with width and font-size (and possibly other) properties: 
+// though it is showing in developer tools media query still does not overwrite main code.
